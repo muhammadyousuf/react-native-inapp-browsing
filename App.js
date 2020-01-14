@@ -7,7 +7,7 @@ export default class App extends Component {
 
   async openLink() {
     try {
-      const url = 'https://www.google.com';
+      const url = 'http://13.58.70.121:8080/';
       if (await InAppBrowser.isAvailable()) {
         const result = await InAppBrowser.open(url, {
           // iOS Properties
@@ -40,7 +40,9 @@ export default class App extends Component {
           },
         });
         Alert.alert(JSON.stringify(result));
-      } else Linking.openURL(url);
+      } else {
+        Linking.openURL(url);
+      }
     } catch (error) {
       Alert.alert(error.message);
     }
